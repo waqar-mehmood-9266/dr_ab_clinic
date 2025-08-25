@@ -111,7 +111,7 @@ export function Hero() {
             <div className="relative w-full h-96 lg:h-[550px] mt-8 rounded-3xl overflow-hidden luxury-shadow">
               <div className="absolute inset-0 bg-gradient-to-br from-amber-400/20 to-rose-400/20" />
               <img
-                src="/placeholder.svg?height=600&width=500"
+                src="/services-background.png"
                 alt="Laser treatment"
                 className="w-full h-full object-cover"
               />

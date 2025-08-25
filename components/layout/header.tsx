@@ -23,7 +23,7 @@ export function Header() {
 
   const navItems = [
     { href: "/", label: "Home" },
-    { href: "/plans", label: "Plans" },
+    // { href: "/plans", label: "Plans" },
     { href: "/book", label: "Book Now" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
@@ -51,6 +51,7 @@ export function Header() {
                 key={item.href}
                 href={item.href}
                 className="text-gray-700 hover:text-amber-600 transition-colors font-medium"
+                prefetch
               >
                 {item.label}
               </Link>

@@ -83,7 +83,7 @@ export function About() {
           >
             <div className="relative w-full h-96 lg:h-[500px] rounded-3xl overflow-hidden luxury-shadow">
               <img
-                src="/placeholder.svg?height=500&width=600"
+                src="/hero-laser-treatment.png"
                 alt="Modern clinic interior"
                 className="w-full h-full object-cover"
               />

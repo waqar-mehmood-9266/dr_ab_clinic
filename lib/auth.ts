@@ -4,7 +4,7 @@ import type { NextRequest } from "next/server"
 const JWT_SECRET = process.env.JWT_SECRET || ""
 const JWT_REFRESH_SECRET = process.env.JWT_REFRESH_SECRET || ""
 
-export function generateTokens(userId: string) {
+export function generateTokens(userId: string, role: any, name: any) {
   const accessToken = jwt.sign({ userId }, JWT_SECRET, { expiresIn: "15m" })
   const refreshToken = jwt.sign({ userId }, JWT_REFRESH_SECRET, { expiresIn: "7d" })
 

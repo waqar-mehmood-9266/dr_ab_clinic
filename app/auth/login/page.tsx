@@ -20,6 +20,7 @@ export default function LoginPage() {
   })
   const [showPassword, setShowPassword] = useState(false)
   const [isLoading, setIsLoading] = useState(false)
+  const [showResendVerification, setShowResendVerification] = useState(false)
   const { login } = useAuth()
   const { toast } = useToast()
   const router = useRouter()
@@ -27,6 +28,7 @@ export default function LoginPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsLoading(true)
+    setShowResendVerification(false)
 
     try {
       await login(formData.email, formData.password)
@@ -35,14 +37,54 @@ export default function LoginPage() {
         description: "You have been successfully logged in.",
       })
       router.push("/dashboard")
-    } catch (error) {
-      toast({
-        title: "Login failed",
-        description: "Invalid email or password. Please try again.",
-        variant: "destructive",
-      })
+    } catch (error: any) {
+      if (error.message.includes("verify your email")) {
+        toast({
+          title: "Email Verification Required",
+          description: "Please check your inbox and verify your email address before logging in.",
+          variant: "destructive",
+        })
+        setShowResendVerification(true)
+      } else {
+        toast({
+          title: "Login failed",
+          description: error.message || "Invalid email or password. Please try again.",
+          variant: "destructive",
+        })
+      }
     } finally {
       setIsLoading(false)
+    }
+  }
+
+  const handleResendVerification = async () => {
+    try {
+      const response = await fetch("/api/auth/resend-verification", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: formData.email }),
+      })
+
+      if (response.ok) {
+        toast({
+          title: "Verification email sent",
+          description: "Please check your inbox for the verification link.",
+        })
+        setShowResendVerification(false)
+      } else {
+        const data = await response.json()
+        toast({
+          title: "Error",
+          description: data.message || "Failed to send verification email.",
+          variant: "destructive",
+        })
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Something went wrong. Please try again.",
+        variant: "destructive",
+      })
     }
   }
 
@@ -54,9 +96,9 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6">
               <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">AB</span>
+                <span className="text-white font-bold text-lg">E</span>
               </div>
-              <span className="font-playfair text-2xl font-bold text-gray-900">Dr.AB Aesthetic & Skin Laser</span>
+              <span className="font-playfair text-2xl font-bold text-gray-900">Elite Laser</span>
             </Link>
             <h1 className="text-3xl font-playfair font-bold text-gray-900 mb-2">Welcome Back</h1>
             <p className="text-gray-600">Sign in to your account to continue</p>
@@ -119,6 +161,25 @@ export default function LoginPage() {
               {isLoading ? "Signing in..." : "Sign In"}
             </Button>
           </form>
+
+          {/* Resend Verification */}
+          {showResendVerification && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              className="mt-6 p-4 bg-amber-50 rounded-lg border border-amber-200"
+            >
+              <p className="text-sm text-gray-600 mb-3 text-center">Haven't received the verification email?</p>
+              <Button
+                type="button"
+                variant="outline"
+                onClick={handleResendVerification}
+                className="w-full text-amber-600 border-amber-600 hover:bg-amber-50 bg-transparent"
+              >
+                Resend Verification Email
+              </Button>
+            </motion.div>
+          )}
 
           {/* Footer */}
           <div className="text-center mt-8">

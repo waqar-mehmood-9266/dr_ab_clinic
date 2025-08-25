@@ -9,21 +9,21 @@ const testimonials = [
     treatment: "Laser Hair Removal",
     rating: 5,
     text: "Amazing results! The staff was professional and the treatment was virtually painless. I'm so happy with my smooth skin.",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "testimonial-sarah.png",
   },
   {
     name: "Michael Chen",
     treatment: "Tattoo Removal",
     rating: 5,
     text: "I thought I'd be stuck with my old tattoo forever. The team here worked miracles - it's completely gone now!",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "/testimonial-michael.png",
   },
   {
     name: "Emma Davis",
     treatment: "Skin Rejuvenation",
     rating: 5,
     text: "My skin looks 10 years younger! The treatment was comfortable and the results exceeded my expectations.",
-    image: "/placeholder.svg?height=80&width=80",
+    image: "/testimonial-emma.png",
   },
 ]
 

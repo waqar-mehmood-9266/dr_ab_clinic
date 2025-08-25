@@ -14,27 +14,39 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ message: "Email and password are required" }, { status: 400 })
     }
 
-    // Find user
+    // Find user by email
     const user = await User.findOne({ email })
     if (!user) {
-      return NextResponse.json({ message: "Invalid credentials" }, { status: 401 })
+      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 })
     }
 
-    // Check password
+    // Check if email is verified
+    if (!user.isEmailVerified) {
+      return NextResponse.json(
+        {
+          message: "Please verify your email address before logging in. Check your inbox for the verification link.",
+          requiresVerification: true,
+        },
+        { status: 403 },
+      )
+    }
+
+    // Validate password
     const isPasswordValid = await user.comparePassword(password)
     if (!isPasswordValid) {
-      return NextResponse.json({ message: "Invalid credentials" }, { status: 401 })
+      return NextResponse.json({ message: "Invalid email or password" }, { status: 401 })
     }
 
     // Generate tokens
-    const { accessToken, refreshToken } = generateTokens(user._id.toString())
+    const { accessToken, refreshToken } = generateTokens(user._id.toString(), user.role, user.name);
 
-    // User response
+    // Remove sensitive data from response
     const userResponse = {
       _id: user._id,
       name: user.name,
       email: user.email,
       role: user.role,
+      isEmailVerified: user.isEmailVerified,
     }
 
     return NextResponse.json({
