@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
 
 // Email verification function for user account creation
 export async function sendEmailVerification(user: any, token: string) {
-  const verificationUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/auth/verify-email?token=${token}`
+  const verificationUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "https://dr-ab-clinic.vercel.app"}/auth/verify-email?token=${token}`
 
   const mailOptions = {
     from: process.env.SMTP_USER,
@@ -64,7 +64,7 @@ export async function sendEmailVerification(user: any, token: string) {
 
 // Password reset email
 export async function sendPasswordResetEmail(user: any, token: string) {
-  const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"}/auth/reset-password?token=${token}`
+  const resetUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "https://dr-ab-clinic.vercel.app"}/auth/reset-password?token=${token}`
 
   const mailOptions = {
     from: process.env.SMTP_USER,
