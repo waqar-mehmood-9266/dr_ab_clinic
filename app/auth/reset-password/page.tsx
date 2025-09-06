@@ -156,9 +156,9 @@ export default function ResetPasswordPage() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6">
               <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">D</span>
+                <span className="text-white font-bold text-lg">AB</span>
               </div>
-              <span className="font-playfair text-2xl font-bold text-gray-900">Dr. AB Clinic</span>
+              <span className="font-playfair text-2xl font-bold text-gray-900">Dr.AB Aesthetic & Skin Laser</span>
             </Link>
             <h1 className="text-3xl font-playfair font-bold text-gray-900 mb-2">Reset Password</h1>
             <p className="text-gray-600">Enter your new password below.</p>

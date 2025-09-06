@@ -1,6 +1,3 @@
-
-
-
 "use client"
 
 import type React from "react"
@@ -124,8 +121,7 @@ export default function ContactPage() {
           <div className="container mx-auto px-4 text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="max-w-4xl mx-auto">
               <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-gray-900 mb-6">
-                Get In
-                <span className="block gold-accent">Touch</span>
+                Get In <span className="block gold-accent">Touch</span>
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed mb-8">
                 Ready to start your journey to healthier, more beautiful skin? We're here to help you every step of the
@@ -410,9 +406,9 @@ export default function ContactPage() {
                       <p>
                         <strong>Address:</strong>
                         <br />
-                        123 Medical Plaza, Suite 456
+                        DR AB Aesthetic and Laser Clinic
                         <br />
-                        Lahore, Punjab, Pakistan
+                        Jalalpur Rd, near Kalma Chowk, Hafizabad, Pakistan
                       </p>
                       <p>
                         <strong>Parking:</strong> Free parking available on-site
@@ -424,9 +420,21 @@ export default function ContactPage() {
                         <strong>Public Transport:</strong> Easily accessible by bus and taxi
                       </p>
                     </div>
-                    <div className="mt-6">
+                    {/* <div className="mt-6">
                       <Button className="bg-amber-600 hover:bg-amber-700">Get Directions</Button>
+                    </div> */}
+                    <div className="mt-6">
+                      <a
+                        href="https://www.google.com/maps/dir/?api=1&destination=DR+AB+AESTHETIC+AND+LASER+SKIN+CLINIC+HAFIZABAD&destination_place_id=0x391f4de862b3f7e1:0x63e5e80ec4f39c09"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <Button className="bg-amber-600 hover:bg-amber-700">
+                          Get Directions
+                        </Button>
+                      </a>
                     </div>
+
                   </CardContent>
                 </Card>
               </motion.div>
@@ -434,7 +442,7 @@ export default function ContactPage() {
               <motion.div initial={{ opacity: 0, x: 50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
                 <div className="rounded-lg overflow-hidden h-96 luxury-shadow">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3398.175267890123!2d74.35874!3d31.5204!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391904e0c0c0c0c0%3A0x1234567890abcdef!2sLahore%2C+Punjab%2C+Pakistan!5e0!3m2!1sen!2sus!4v1633072800000!5m2!1sen!2sus"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3381.02678510889!2d73.67751407542923!3d32.068524273967746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391f4de862b3f7e1%3A0x63e5e80ec4f39c09!2sDR%20AB%20AESTHETIC%20AND%20LASER%20SKIN%20CLINIC%20HAFIZABAD!5e0!3m2!1sen!2s!4v1757171985285!5m2!1sen!2s"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

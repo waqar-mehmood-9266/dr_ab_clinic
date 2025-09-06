@@ -33,9 +33,8 @@ export function Header() {
     <motion.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-effect luxury-shadow" : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-effect luxury-shadow" : "bg-transparent"
+        }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
@@ -62,12 +61,14 @@ export function Header() {
           <div className="hidden lg:flex items-center space-x-4">
             {user ? (
               <div className="flex items-center space-x-4">
-                <Link href="/dashboard">
-                  <Button variant="ghost" size="sm">
-                    <User className="w-4 h-4 mr-2" />
-                    Dashboard
-                  </Button>
-                </Link>
+                {user.role !== "admin" && (
+                  <Link href="/dashboard">
+                    <Button variant="ghost" size="sm">
+                      <User className="w-4 h-4 mr-2" />
+                      Dashboard
+                    </Button>
+                  </Link>
+                )}
                 {user.role === "admin" && (
                   <Link href="/admin">
                     <Button variant="ghost" size="sm">

@@ -36,7 +36,8 @@ export default function LoginPage() {
         title: "Welcome back!",
         description: "You have been successfully logged in.",
       })
-      router.push("/dashboard")
+
+      router.push("/")
     } catch (error: any) {
       if (error.message.includes("verify your email")) {
         toast({
@@ -96,9 +97,9 @@ export default function LoginPage() {
           <div className="text-center mb-8">
             <Link href="/" className="inline-flex items-center space-x-2 mb-6">
               <div className="w-10 h-10 bg-gradient-to-br from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">E</span>
+                <span className="text-white font-bold text-lg">AB</span>
               </div>
-              <span className="font-playfair text-2xl font-bold text-gray-900">Elite Laser</span>
+              <span className="font-playfair text-2xl font-bold text-gray-900">Dr.AB Aesthetic & Skin Laser</span>
             </Link>
             <h1 className="text-3xl font-playfair font-bold text-gray-900 mb-2">Welcome Back</h1>
             <p className="text-gray-600">Sign in to your account to continue</p>
