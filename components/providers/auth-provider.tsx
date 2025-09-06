@@ -96,6 +96,7 @@
 
 import type React from "react"
 import { createContext, useContext, useEffect, useState } from "react"
+import { useRouter } from "next/navigation"
 
 interface User {
   _id: string
@@ -116,6 +117,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined)
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [loading, setLoading] = useState(true)
+  const router = useRouter();
 
   useEffect(() => {
     // Check for stored user data on mount
@@ -170,6 +172,9 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem("token")
     localStorage.removeItem("refreshToken")
     setUser(null)
+
+
+    router.push('/');
   }
 
   return <AuthContext.Provider value={{ user, login, logout, loading }}>{children}</AuthContext.Provider>
