@@ -18,11 +18,11 @@ export async function sendEmailVerification(user: any, token: string) {
   const mailOptions = {
     from: process.env.SMTP_USER,
     to: user.email,
-    subject: "Verify Your Email - Laser Clinic",
+    subject: "Verify Your Email - Dr.AB Aesthetic & Skin Laser Clinic",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding: 30px; text-align: center;">
-          <h1 style="color: white; margin: 0; font-size: 28px;">Welcome to Laser Clinic</h1>
+          <h1 style="color: white; margin: 0; font-size: 28px;">Welcome to Dr.AB Aesthetic & Skin Laser Clinic</h1>
         </div>
         
         <div style="padding: 30px; background: #f9fafb;">
@@ -51,8 +51,8 @@ export async function sendEmailVerification(user: any, token: string) {
         
         <div style="background: #1f2937; padding: 20px; text-align: center;">
           <p style="color: #9ca3af; margin: 0; font-size: 14px;">
-            Laser Clinic | Professional Aesthetic Treatments<br>
-            Email: info@laserclinic.com | Phone: (555) 123-4567
+            Dr.AB Aesthetic & Skin Laser Clinic | Professional Aesthetic Treatments<br>
+            Email: drabaestheticlaserclinic@gmail.com | Phone: +92 3709980002
           </p>
         </div>
       </div>
@@ -69,7 +69,7 @@ export async function sendPasswordResetEmail(user: any, token: string) {
   const mailOptions = {
     from: process.env.SMTP_USER,
     to: user.email,
-    subject: "Reset Your Password - Laser Clinic",
+    subject: "Reset Your Password - Dr.AB Aesthetic & Skin Laser Clinic",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); padding: 30px; text-align: center;">
@@ -102,8 +102,8 @@ export async function sendPasswordResetEmail(user: any, token: string) {
         
         <div style="background: #1f2937; padding: 20px; text-align: center;">
           <p style="color: #9ca3af; margin: 0; font-size: 14px;">
-            Laser Clinic | Professional Aesthetic Treatments<br>
-            Email: info@laserclinic.com | Phone: (555) 123-4567
+            Dr.AB Aesthetic & Skin Laser Clinic | Professional Aesthetic Treatments<br>
+            Email: drabaestheticlaserclinic@gmail.com | Phone: +92 3709980002
           </p>
         </div>
       </div>
@@ -210,7 +210,7 @@ export async function sendAdminBookingNotification(booking: any) {
           </div>
         </div>
         <div style="background: #f9fafb; padding: 20px; text-align: center; color: #6b7280; font-size: 12px;">
-          <p>Dr. AB Aesthetic Clinic - Admin Notification</p>
+          <p>Dr.AB Aesthetic & Skin Laser Clinic - Admin Notification</p>
           <p>Booking ID: ${booking._id}</p>
         </div>
       </div>
@@ -231,11 +231,11 @@ export async function sendBookingConfirmationEmail(booking: any) {
   const mailOptions = {
     from: process.env.SMTP_FROM,
     to: booking.email,
-    subject: "✅ Appointment Confirmed - Dr. AB Aesthetic Clinic",
+    subject: "🔔 Appointment Confirmed - Dr.AB Aesthetic & Skin Laser Clinic",
     html: `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <div style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 20px; text-align: center;">
-          <h1 style="color: white; margin: 0;">✅ Appointment Confirmed</h1>
+          <h1 style="color: white; margin: 0;">🔔 Appointment Confirmed</h1>
         </div>
         <div style="padding: 30px; background: #ffffff;">
           <h2 style="color: #1f2937; margin-bottom: 20px;">Great News ${booking.name}!</h2>
@@ -259,7 +259,7 @@ export async function sendBookingConfirmationEmail(booking: any) {
               </tr>
               <tr>
                 <td style="padding: 8px 0; color: #6b7280; font-weight: bold;">Status:</td>
-                <td style="padding: 8px 0; color: #10b981; font-weight: bold;">CONFIRMED ✅</td>
+                <td style="padding: 8px 0; color: #10b981; font-weight: bold;">CONFIRMED</td>
               </tr>
             </table>
           </div>
@@ -279,8 +279,8 @@ export async function sendBookingConfirmationEmail(booking: any) {
           </p>
         </div>
         <div style="background: #f9fafb; padding: 20px; text-align: center; color: #6b7280; font-size: 12px;">
-          <p>Dr. AB Aesthetic Clinic - Your Beauty, Our Expertise</p>
-          <p>Email: ${process.env.CLINIC_EMAIL} | Phone: +1 (555) 123-4567</p>
+          <p>Dr.AB Aesthetic & Skin Laser Clinic - Your Beauty, Our Expertise</p>
+          <p>Email: ${process.env.CLINIC_EMAIL} | Phone: +92 3709980002</p>
         </div>
       </div>
     `,
