@@ -4,8 +4,21 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Calendar, Star, Shield, Award } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useAuth } from "../providers/auth-provider"
 
 export function Hero() {
+  const { user} = useAuth()
+  const router = useRouter();
+
+    const handleBookNow = () => {
+    if (user) {
+      router.push("/book")
+    } else {
+      router.push("/auth/login")
+    }
+  } 
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background */}
@@ -62,13 +75,11 @@ export function Hero() {
               transition={{ delay: 0.5 }}
               className="flex flex-col sm:flex-row gap-4"
             >
-              <Link href="/book">
-                <Button size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg">
+                <Button onClick={handleBookNow}  size="lg" className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 text-lg">
                   <Calendar className="w-5 h-5 mr-2" />
                   Book Consultation
                 </Button>
-              </Link>
-              <Link href="/plans">
+              {/* <Link href="/plans">
                 <Button
                   variant="outline"
                   size="lg"
@@ -76,7 +87,7 @@ export function Hero() {
                 >
                   View Plans
                 </Button>
-              </Link>
+              </Link> */}
             </motion.div>
 
             {/* Stats */}

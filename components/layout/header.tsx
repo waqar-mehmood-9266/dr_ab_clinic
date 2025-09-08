@@ -7,11 +7,13 @@ import { Menu, X, User } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useAuth } from "@/hooks/use-auth"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
 
 export function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const { user, logout } = useAuth()
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +23,18 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  const handleBookNow = () => {
+    if (user) {
+      router.push("/book")
+    } else {
+      router.push("/auth/login")
+    }
+  }
+
   const navItems = [
     { href: "/", label: "Home" },
     // { href: "/plans", label: "Plans" },
-    { href: "/book", label: "Book Now" },
+    // { href: "/book", label: "Book Now" },
     { href: "/about", label: "About" },
     { href: "/contact", label: "Contact" },
   ]
@@ -55,6 +65,12 @@ export function Header() {
                 {item.label}
               </Link>
             ))}
+            <button
+              onClick={handleBookNow}
+              className="text-gray-700 hover:text-amber-600 transition-colors font-medium"
+            >
+              Book Now
+            </button>
           </nav>
 
           {/* Auth Buttons */}
