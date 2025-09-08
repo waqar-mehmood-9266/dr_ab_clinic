@@ -6,8 +6,24 @@ import { Footer } from "@/components/layout/footer"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Award, Users, Heart, Star, Phone, Mail, Instagram } from "lucide-react"
+import { useRouter } from "next/navigation"
+import { useAuth } from "@/hooks/use-auth"
 
 export default function AboutPage() {
+
+  const { user } = useAuth()
+  const router = useRouter();
+
+
+
+  const handleBookNow = () => {
+    if (user) {
+      router.push("/book")
+    } else {
+      router.push("/auth/login")
+    }
+  }
+
   const doctors = [
     {
       name: "Dr Abdul Basit",
@@ -313,12 +329,12 @@ export default function AboutPage() {
                 goals.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a
-                  href="/book"
+                <button
+                  onClick={handleBookNow}
                   className="bg-amber-600 hover:bg-amber-700 text-white px-8 py-4 rounded-lg font-semibold transition-colors"
                 >
                   Book Consultation
-                </a>
+                </button>
                 <a
                   href="/contact"
                   className="border border-amber-600 text-amber-600 hover:bg-amber-50 px-8 py-4 rounded-lg font-semibold transition-colors"
