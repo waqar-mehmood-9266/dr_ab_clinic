@@ -10,7 +10,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen luxury-gradient">
       <Header />
-      <main>
+      <main className="pt-24">
         <Hero />
         <Services />
         <About />

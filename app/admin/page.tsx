@@ -452,22 +452,37 @@ export default function AdminPage() {
   }
 
   // Loading state
+  // if (loading || isLoading) {
+  //   return (
+  //     <div className="min-h-screen luxury-gradient">
+  //       <Header />
+  //       <main className="pt-24 pb-16">
+  //         <div className="container mx-auto px-4">
+  //           <div className="text-center">
+  //             <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
+  //             <p className="text-gray-600">Loading admin dashboard...</p>
+  //           </div>
+  //         </div>
+  //       </main>
+  //       <Footer />
+  //     </div>
+  //   )
+  // }
   if (loading || isLoading) {
     return (
-      <div className="min-h-screen luxury-gradient">
+      <div className="min-h-screen flex flex-col luxury-gradient">
         <Header />
-        <main className="pt-24 pb-16">
-          <div className="container mx-auto px-4">
-            <div className="text-center">
-              <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
-              <p className="text-gray-600">Loading admin dashboard...</p>
-            </div>
+        <main className="flex-1 flex items-center justify-center">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mx-auto mb-4"></div>
+            <p className="text-gray-600">Loading admin dashboard...</p>
           </div>
         </main>
         <Footer />
       </div>
     )
   }
+
 
   // Error state or access denied
   if (!user || user.role !== "admin" || error) {
@@ -1079,9 +1094,9 @@ export default function AdminPage() {
                                   <div className="mt-4 p-3 bg-green-100 rounded border-l-4 border-green-500">
                                     <p className="text-green-800 text-sm font-medium">
                                       {booking.understandTreatment &&
-                                      booking.understandRisks &&
-                                      booking.informationAccurate &&
-                                      booking.consentToTreatment
+                                        booking.understandRisks &&
+                                        booking.informationAccurate &&
+                                        booking.consentToTreatment
                                         ? "✅ All consent requirements have been met. Patient is cleared for treatment."
                                         : "⚠️ Incomplete consent. Please verify all requirements before proceeding with treatment."}
                                     </p>
@@ -1095,9 +1110,9 @@ export default function AdminPage() {
                                 <div className="text-sm text-gray-500">
                                   Patient ready for treatment:{" "}
                                   {booking.understandTreatment &&
-                                  booking.understandRisks &&
-                                  booking.informationAccurate &&
-                                  booking.consentToTreatment
+                                    booking.understandRisks &&
+                                    booking.informationAccurate &&
+                                    booking.consentToTreatment
                                     ? "✅ Yes"
                                     : "⚠️ Pending consent"}
                                 </div>
