@@ -7,7 +7,7 @@ const services = [
   {
     icon: Zap,
     title: "Laser Hair Removal",
-    description: "Permanent hair reduction with advanced laser technology. Safe for all skin types.",
+    description: "Permanent hair reduction with laser technology. Safe for all skin types.",
     features: ["Painless treatment", "Long-lasting results", "All skin types"],
   },
   {
