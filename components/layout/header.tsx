@@ -138,15 +138,23 @@ export function Header() {
                     {item.label}
                   </Link>
                 ))}
+                <button
+                  onClick={handleBookNow}
+                  className="block px-4 py-2 text-gray-700 hover:text-amber-600 transition-colors"
+                >
+                  Book Now
+                </button>
                 <div className="px-4 pt-4 border-t border-gray-200 space-y-2">
                   {user ? (
                     <>
-                      <Link href="/dashboard" onClick={() => setIsOpen(false)}>
-                        <Button variant="ghost" className="w-full justify-start">
-                          <User className="w-4 h-4 mr-2" />
-                          Dashboard
-                        </Button>
-                      </Link>
+                      {user.role !== "admin" && (
+                        <Link href="/dashboard" onClick={() => setIsOpen(false)}>
+                          <Button variant="ghost" className="w-full justify-start">
+                            <User className="w-4 h-4 mr-2" />
+                            Dashboard
+                          </Button>
+                        </Link>
+                      )}
                       {user.role === "admin" && (
                         <Link href="/admin" onClick={() => setIsOpen(false)}>
                           <Button variant="ghost" className="w-full justify-start">
