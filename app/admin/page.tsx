@@ -3801,7 +3801,7 @@ export default function AdminPage() {
                                   booking.understandRisks &&
                                   booking.informationAccurate &&
                                   booking.consentToTreatment
-                                    ? "✅ Yes"
+                                    ? "✅ Yes Ready"
                                     : "⚠️ Pending consent"}
                                 </div>
                                 <Button

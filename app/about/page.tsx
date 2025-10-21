@@ -37,7 +37,7 @@ export default function AboutPage() {
         "FRACGP (RACGP, AUS)",
         "Aesthetic Medicine (AAAM, USA)",
       ],
-      image: "/professional-male-doctor.png",
+      image: "/dummy_profile.jpg",
     },
     {
       name: "Dr Asma",
@@ -49,7 +49,7 @@ export default function AboutPage() {
         "Advanced Dermatology Training",
         "Laser Treatment Specialist",
       ],
-      image: "/professional-female-doctor-portrait.png",
+      image: "/dummy_profile.jpg",
     },
   ]
 

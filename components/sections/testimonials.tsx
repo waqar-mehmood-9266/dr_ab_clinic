@@ -8,7 +8,7 @@ const testimonials = [
     name: "Sarah Johnson",
     treatment: "Laser Hair Removal",
     rating: 5,
-    text: "Amazing results! The staff was professional and the treatment was virtually painless. I'm so happy.",
+    text: "Amazing results! The staff was professional and the treatment was virtually painless. I'm so happy and satisfied.",
     image: "testimonial-sarah.png",
   },
   {
